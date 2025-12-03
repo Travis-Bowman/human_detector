@@ -19,14 +19,16 @@ indicator_led.off()
 error_led.off()
 
 
-# LOAD CNN MODEL
+MODEL_PATH = "YOUR_MODEL_PATH_HERE"  # Update with your model path
+
 try:
-    model = tf.keras.models.load_model("model.h5")
-    print("Model loaded successfully.")
+    model = tf.keras.models.load_model(MODEL_PATH)
+    print(f"Model loaded successfully from {MODEL_PATH}")
 except Exception as e:
-    print("Model load FAILED:", e)
+    print(f"Model load FAILED at {MODEL_PATH}:", e)
     error_led.on()
     raise SystemExit
+
 
 
 # CAMERA SETUP
